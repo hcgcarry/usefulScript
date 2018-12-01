@@ -1,7 +1,10 @@
 from pytube import YouTube
-while 1:
-    videoname=input("輸入youtube網址:\n")
-    yt = YouTube(videoname)
+filename="musicList.txt"
+file=open(filename,"r")
+
+for videoURL in file:
+    print(videoURL)
+    yt = YouTube(videoURL)
     stream = yt.streams.first()
     stream.download("/home/dio/Music/")
     print('下載完成')
